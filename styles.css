@@ -47,7 +47,7 @@ main {
 .splitter__inputs {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 35px;
   color: var(--body-color-light);
 }
 
@@ -56,7 +56,7 @@ main {
 .splitter__tip-amount {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .splitter__inputs input {

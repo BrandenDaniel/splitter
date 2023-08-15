@@ -1,0 +1,44 @@
+body {
+  background: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+}
+
+* {
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitter {
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+}
+
+.splitter h1 {
+  text-align: center;
+  color: hsl(183, 100%, 15%);
+  font-size: 1.5rem;
+  line-height: 1.4;
+  letter-spacing: 15px;
+}
+
+.splitter__container {
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.splitter__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

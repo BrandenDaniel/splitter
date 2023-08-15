@@ -66,6 +66,15 @@ main {
   text-align: right;
   font-size: 24px;
   color: var(--body-color);
+  border-radius: 5px;
+}
+
+.splitter__inputs input:focus-visible,
+.splitter__inputs input:focus-within,
+.splitter__inputs input:focus {
+  border-color: var(--strong-cyan);
+  outline-color: var(--strong-cyan);
+  transition: none;
 }
 
 .splitter__inputs input::placeholder {
@@ -85,13 +94,14 @@ input[type="number"] {
 
 .splitter__tip-amount-btns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 110px);
   gap: 13px;
 }
 
-.splitter__tip-amount-btns button {
+.splitter__tip-amount-btns button,
+.splitter__tip-amount-btns input {
   border: none;
-  padding: 6px 10px;
+  padding: 6px;
   border-radius: 5px;
   font-size: 1.35rem;
   background-color: var(--body-color);
@@ -99,14 +109,15 @@ input[type="number"] {
   transition: 0.15s ease-in-out;
 }
 
-.splitter__tip-amount-btns button:last-child {
-  color: var(--body-color-light);
+.splitter__tip-amount-btns input {
+  text-align: center;
   background: hsl(189, 41%, 97%);
+  color: var(--body-color);
 }
 
 button:hover {
   cursor: pointer;
-  background: var(--strong-cyan) !important;
+  background: hsl(185, 41%, 84%) !important;
   color: var(--body-color) !important;
 }
 
@@ -127,7 +138,7 @@ button:hover {
 
 .splitter__result p {
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .splitter__result p span {
@@ -155,11 +166,17 @@ button:hover {
   background: var(--strong-cyan);
   padding: 8px 0;
   border-radius: 5px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--body-color);
+  transition: 0.15s ease-in-out;
+}
+
+.splitter__result button:hover {
+  background: hsl(184, 14%, 56%);
 }
 
 .splitter__result button:disabled {
   opacity: 0.25;
   cursor: default;
+  pointer-events: none;
 }

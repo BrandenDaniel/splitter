@@ -17,14 +17,14 @@ main {
 .splitter {
   display: flex;
   flex-direction: column;
-  gap: 75px;
+  gap: 65px;
 }
 
 .splitter h1 {
   text-align: center;
   color: hsl(183, 100%, 15%);
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-size: 1.3rem;
+  line-height: 1.5;
   letter-spacing: 15px;
 }
 

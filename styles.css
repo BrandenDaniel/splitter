@@ -2,6 +2,8 @@
   --body-color: hsl(183, 100%, 15%);
   --strong-cyan: hsl(172, 67%, 45%);
   --body-color-light: hsl(184, 14%, 56%);
+  --button-hover: #9fe8df;
+  --input-bg: hsl(189, 41%, 97%);
 }
 
 body {
@@ -13,42 +15,47 @@ body {
   margin: 0;
   font-family: "Space Mono", monospace;
 }
-
-main {
-  height: 100vh;
+html {
+  min-height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+main {
+  width: 100%;
 }
 
 .splitter {
   display: flex;
   flex-direction: column;
-  gap: 75px;
+  gap: 30px;
+  margin-top: 30px;
+  width: 100%;
 }
 
 .splitter h1 {
   text-align: center;
   color: var(--body-color);
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   line-height: 1.5;
   letter-spacing: 10px;
 }
 
 .splitter__container {
-  padding: 35px;
+  padding: 25px;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 25px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 35px;
 }
 
 .splitter__inputs {
   display: flex;
   flex-direction: column;
   gap: 35px;
-  color: var(--body-color-light);
 }
 
 .splitter__bill,
@@ -59,22 +66,55 @@ main {
   gap: 7px;
 }
 
+.splitter__tip-amount {
+  gap: 13px;
+}
+
 .splitter__inputs input {
   border: none;
-  background: hsl(189, 41%, 97%);
+  background: var(--input-bg);
   padding: 6px 15px;
   text-align: right;
   font-size: 24px;
   color: var(--body-color);
   border-radius: 5px;
+  display: block;
+  min-width: -webkit-fill-available;
+}
+
+.splitter__bill input,
+.splitter__number-of-people input {
+  background-image: url(./images/icon-dollar.svg);
+  background-position: left 15px center;
+  background-size: 12px;
+  background-repeat: no-repeat;
+}
+
+.splitter__number-of-people input {
+  background-image: url(./images/icon-person.svg);
 }
 
 .splitter__inputs input:focus-visible,
 .splitter__inputs input:focus-within,
 .splitter__inputs input:focus {
-  border-color: var(--strong-cyan);
-  outline-color: var(--strong-cyan);
+  outline: 3px solid var(--strong-cyan);
   transition: none;
+}
+
+.splitter__inputs label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--body-color-light);
+}
+
+.splitter__inputs-invalid label::after {
+  content: "Can't be zero";
+  color: tomato;
+}
+
+.splitter__inputs-invalid input {
+  outline: 3px solid tomato !important;
 }
 
 .splitter__inputs input::placeholder {
@@ -94,14 +134,15 @@ input[type="number"] {
 
 .splitter__tip-amount-btns {
   display: grid;
-  grid-template-columns: repeat(3, 110px);
+  grid-template-columns: repeat(2, 1fr);
   gap: 13px;
+  position: relative;
 }
 
 .splitter__tip-amount-btns button,
 .splitter__tip-amount-btns input {
   border: none;
-  padding: 6px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 1.35rem;
   background-color: var(--body-color);
@@ -113,18 +154,47 @@ input[type="number"] {
   text-align: center;
   background: hsl(189, 41%, 97%);
   color: var(--body-color);
+  display: block;
+  min-width: -webkit-fill-available;
+  text-align: right;
+}
+
+.splitter__tip-amount-btns input + span {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -24px;
+  color: tomato;
+}
+
+.splitter__tip-amount-btns.splitter__inputs-invalid input + span {
+  display: block;
+}
+
+.splitter__tip-amount-btns input::placeholder {
+  text-align: center;
+}
+
+.splitter__tip-amount-btns-active {
+  background: var(--strong-cyan) !important;
+}
+
+input[type="number"].splitter__tip-amount-btns-active {
+  background: var(--input-bg) !important;
+  outline: 3px solid var(--strong-cyan);
 }
 
 button:hover {
   cursor: pointer;
-  background: hsl(185, 41%, 84%) !important;
+  background: var(--button-hover) !important;
   color: var(--body-color) !important;
 }
 
 .splitter__result {
-  padding: 35px;
+  padding: 30px;
   background: var(--body-color);
-  border-radius: 10px;
+  border-radius: 15px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -133,7 +203,7 @@ button:hover {
 .splitter__result > div {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 30px;
 }
 
 .splitter__result p {
@@ -147,17 +217,17 @@ button:hover {
   font-size: 12px;
 }
 
-.splitter__result-amount,
+.splitter__result-tip,
 .splitter__result-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 75px;
+  /* gap: 75px; */
 }
 
 .splitter__result h2 {
   color: var(--strong-cyan);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   line-height: 1;
 }
 
@@ -166,17 +236,57 @@ button:hover {
   background: var(--strong-cyan);
   padding: 8px 0;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: var(--body-color);
   transition: 0.15s ease-in-out;
+  height: 52px;
 }
 
 .splitter__result button:hover {
-  background: hsl(184, 14%, 56%);
+  background: var(--button-hover);
 }
 
 .splitter__result button:disabled {
   opacity: 0.25;
   cursor: default;
   pointer-events: none;
+}
+
+@media (min-width: 880px) {
+  .splitter {
+    gap: 70px;
+    margin-top: 0;
+  }
+
+  .splitter__container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 35px;
+    gap: 40px;
+  }
+
+  .splitter h1 {
+    font-size: 1.5rem;
+  }
+
+  .splitter__tip-amount-btns {
+    grid-template-columns: repeat(3, 110px);
+  }
+
+  .splitter__result h2 {
+    font-size: 2.5rem;
+  }
+
+  .splitter__result {
+    padding: 35px;
+    gap: 30px;
+  }
+
+  .splitter__tip-amount-btns button,
+  .splitter__tip-amount-btns input {
+    padding: 6px;
+  }
+
+  .splitter__result button {
+    height: 44px;
+  }
 }

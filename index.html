@@ -21,6 +21,7 @@
 
     <title>Frontend Mentor | Tip calculator app</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="scripts.js"></script>
   </head>
   <body>
     <main>
@@ -29,35 +30,49 @@
           SPLI <br />
           TTER
         </h1>
-
         <div class="splitter__container">
           <section class="splitter__inputs">
             <div class="splitter__bill">
               <label for="bill">Bill</label>
-              <input type="number" id="bill" placeholder="0" />
+              <input
+                type="number"
+                id="bill"
+                placeholder="0"
+                onchange="billAmount(event)"
+              />
             </div>
 
             <div class="splitter__tip-amount">
               <label>Select Tip %</label>
               <div class="splitter__tip-amount-btns">
-                <button>5%</button>
-                <button>10%</button>
-                <button>15%</button>
-                <button>25%</button>
-                <button>50%</button>
-                <input type="text" placeholder="Custom" />
+                <button onclick="getTip(event)" value=".05">5%</button>
+                <button onclick="getTip(event)" value=".10">10%</button>
+                <button onclick="getTip(event)" value=".15">15%</button>
+                <button onclick="getTip(event)" value=".25">25%</button>
+                <button onclick="getTip(event)" value=".50">50%</button>
+                <input
+                  onchange="getTip(event)"
+                  type="number"
+                  placeholder="Custom"
+                />
+                <span>Can't be zero</span>
               </div>
             </div>
 
             <div class="splitter__number-of-people">
               <label for="noOfPeople">Number of People</label>
-              <input type="number" id="noOfPeople" placeholder="0" />
+              <input
+                type="number"
+                id="noOfPeople"
+                placeholder="0"
+                onchange="peopleAmount(event)"
+              />
             </div>
           </section>
 
           <section class="splitter__result">
             <div>
-              <div class="splitter__result-amount">
+              <div class="splitter__result-tip">
                 <p>Tip Amount <span>/ person</span></p>
                 <h2>$0.00</h2>
               </div>
@@ -67,15 +82,18 @@
               </div>
             </div>
 
-            <button disabled>RESET</button>
+            <button onclick="reset()" disabled>RESET</button>
           </section>
         </div>
       </div>
     </main>
 
     <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://branden.vercel.app/" target="_blank">Branden Ng</a>.
+    </div> -->
   </body>
 </html>

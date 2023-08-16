@@ -262,8 +262,8 @@ button:hover {
 
 @media (min-width: 880px) {
   .splitter {
-    gap: 70px;
-    margin-top: -35px;
+    gap: 50px;
+    margin-top: -25px;
   }
 
   .splitter__container {

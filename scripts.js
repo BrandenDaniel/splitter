@@ -2,12 +2,14 @@ let bill = 0;
 let amountOfPeople = 0;
 let tipRate = 0;
 
+//Dynamically update bill amount/tip calculation on input change
 const billAmount = (event) => {
   bill = event.target.value;
   inputValidator(bill, ".splitter__bill");
   calculateTip();
 };
 
+//Dynamically update amount of people/tip calculation on input change
 const peopleAmount = (event) => {
   amountOfPeople = event.target.value;
   inputValidator(amountOfPeople, ".splitter__number-of-people");
@@ -57,6 +59,7 @@ const getTip = (event) => {
   calculateTip();
 };
 
+//Render tip calculation
 const calculateTip = () => {
   const tipPerPerson = document.querySelector(".splitter__result-tip h2");
   const totalPerPerson = document.querySelector(".splitter__result-total h2");
@@ -82,6 +85,7 @@ const calculateTip = () => {
   }
 };
 
+//Hacky site refresh
 const reset = () => {
   location.reload();
 };

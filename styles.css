@@ -33,7 +33,7 @@ main {
   gap: 30px;
   margin-top: 30px;
   width: 100%;
-  max-width: 873px;
+  max-width: 859px;
 }
 
 .splitter h1 {
@@ -279,7 +279,7 @@ button:hover {
   }
 
   .splitter__result h2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
   .splitter__result {

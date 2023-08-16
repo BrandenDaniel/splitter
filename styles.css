@@ -33,6 +33,7 @@ main {
   gap: 30px;
   margin-top: 30px;
   width: 100%;
+  max-width: 900px;
 }
 
 .splitter h1 {
@@ -204,7 +205,7 @@ button:hover {
 .splitter__result > div {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .splitter__result p {
@@ -223,6 +224,13 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px dashed rgba(38, 192, 171, 0.3);
+}
+
+.splitter__result-tip {
 }
 
 .splitter__result h2 {
@@ -270,7 +278,7 @@ button:hover {
   }
 
   .splitter__tip-amount-btns {
-    grid-template-columns: repeat(3, 110px);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .splitter__result h2 {

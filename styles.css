@@ -46,7 +46,7 @@ main {
 .splitter__container {
   padding: 25px;
   background: #fff;
-  border-radius: 25px;
+  border-radius: 25px 25px 0 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 35px;
@@ -262,6 +262,7 @@ button:hover {
     grid-template-columns: repeat(2, 1fr);
     padding: 35px;
     gap: 40px;
+    border-radius: 25px;
   }
 
   .splitter h1 {
